@@ -103,6 +103,16 @@
       font-weight: bold;
       display: inline-block;
     }
+    .command {
+      background: #333;
+      color: #9ef7ff;
+      font-family: monospace;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.98em;
+      display: inline-block;
+      margin: 4px 0 8px 0;
+    }
     @media (max-width: 700px) {
       .container {
         margin: 16px;
@@ -118,24 +128,29 @@
     <h1>마인크래프트 서버 안내</h1>
     <div class="tabs">
       <button class="tab-btn active" onclick="showTab(0)">서버정보</button>
-      <button class="tab-btn" onclick="showTab(1)">패치내역</button>
-      <button class="tab-btn" onclick="showTab(2)">후원</button>
+      <button class="tab-btn" onclick="showTab(1)">서버특징</button>
+      <button class="tab-btn" onclick="showTab(2)">패치내역</button>
+      <button class="tab-btn" onclick="showTab(3)">후원</button>
     </div>
     <div class="tab-content active">
       <b>서버 주소:</b> <span style="color:#c7ffb2;">25.29.106.134</span><br>
       <b>버전:</b> 1.21.4<br>
       <b>운영자:</b> 성준서<br>
+      <h2>참여 방법</h2>
+      <ul>
+        <li>서버 주소를 마인크래프트에 입력 후 접속!</li>
+        <li>서버 내 채팅으로 문의 가능</li>
+      </ul>
+    </div>
+    <div class="tab-content">
       <h2>서버 특징</h2>
       <ul>
         <li>마크 감성의 친근한 커뮤니티</li>
         <li>건축, 생존, 미니게임 등 다양한 컨텐츠</li>
         <li>매일 운영자 이벤트 진행</li>
         <li>유저 친화적 규칙과 시스템</li>
-      </ul>
-      <h2>참여 방법</h2>
-      <ul>
-        <li>서버 주소를 마인크래프트에 입력 후 접속!</li>
-        <li>서버 내 채팅으로 문의 가능</li>
+        <li><span class="command">/메뉴북</span> 명령어로 메뉴북 지급</li>
+        <li>인첸트는 오직 다이아몬드로만 뽑기 가능</li>
       </ul>
     </div>
     <div class="tab-content">
@@ -157,9 +172,7 @@
       <ul>
         <li>서버 규칙을 꼭 지켜주세요!</li>
         <li>욕설/비방, 도배 금지</li>
-        <li>타인의 건축물 파괴 금지</li>
         <li>어뷰징, 핵 등 불법프로그램 사용 금지</li>
-        <li>친목 강요 금지</li>
         <li>운영자 판단에 따라 경고/추방될 수 있음</li>
       </ul>
     </div>
