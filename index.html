@@ -19,7 +19,6 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
-      /* 아래 라인만 추가됨 */
       background: var(--bg-color) url('https://raw.githubusercontent.com/jusee0821/myserver/main/mcserverbg.jpeg') center center/cover no-repeat fixed;
       min-height: 100vh;
       color: #f2f2f2;
@@ -40,23 +39,44 @@
       margin-bottom: 0.3em;
       text-shadow: 0 2px 16px #2228;
     }
-    h2 {
-      font-size: 1.3em;
-      color: var(--patch-color);
-      margin-top: 2em;
-      margin-bottom: 0.5em;
+    .tabs {
+      display: flex;
+      margin-bottom: 28px;
+      gap: 10px;
     }
-    .info {
-      font-size: 1.05em;
-      line-height: 1.7;
-      margin-bottom: 1.8em;
+    .tab-btn {
+      flex: 1;
+      padding: 12px 0;
+      border: none;
+      background: #333a;
       color: #fff;
+      font-weight: bold;
+      font-size: 1.09em;
+      border-radius: 12px 12px 0 0;
+      cursor: pointer;
+      transition: background 0.2s;
+      outline: none;
+    }
+    .tab-btn.active {
+      background: var(--main-color);
+      color: #222;
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
     }
     .patch {
       background: #222c;
       border-left: 4px solid var(--patch-color);
       padding: 10px 18px;
-      margin: 14px 0;
+      margin: 18px 0;
       border-radius: 8px;
       font-size: 1em;
       color: #c6e9ff;
@@ -79,42 +99,78 @@
         padding: 12px;
       }
       h1 { font-size: 1.3em; }
+      .tab-btn { font-size: 0.95em; padding: 9px 0;}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>마인크래프트 서버 공지 및 정보</h1>
-    <div class="info">
-      <b>서버 주소:</b> <span style="color:#c7ffb2;">mc.yourserver.kr</span><br>
+    <h1>마인크래프트 서버 안내</h1>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab(0)">공지</button>
+      <button class="tab-btn" onclick="showTab(1)">서버정보</button>
+      <button class="tab-btn" onclick="showTab(2)">규칙</button>
+      <button class="tab-btn" onclick="showTab(3)">후원</button>
+    </div>
+    <div class="tab-content active">
+      <div class="patch">
+        <b>[최근 패치]</b><br>
+        - 2025.09.14: 서버 안정화 및 최적화<br>
+        - 2025.09.13: 마을 주민 거래 밸런스 개선<br>
+        - 2025.09.10: 새로운 미니게임 추가
+      </div>
+      <ul>
+        <li>서버 정상 운영 중!</li>
+        <li>문의/건의는 디스코드로 주세요 (<span style="color:#b6eaff;">주시#0821</span>)</li>
+        <li>후원자 이벤트 진행 중</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <b>서버 주소:</b> <span style="color:#c7ffb2;">25.29.106.134</span><br>
       <b>버전:</b> 1.20.1<br>
       <b>운영자:</b> 주시<br>
-      <b>문의:</b> 디스코드 <span style="color:#b6eaff;">주시#0821</span>
+      <b>문의:</b> 디스코드 <span style="color:#b6eaff;">주시#0821</span><br>
+      <h2>서버 특징</h2>
+      <ul>
+        <li>마크 감성의 친근한 커뮤니티</li>
+        <li>건축, 생존, 미니게임 등 다양한 컨텐츠</li>
+        <li>매일 운영자 이벤트 진행</li>
+        <li>유저 친화적 규칙과 시스템</li>
+      </ul>
+      <h2>참여 방법</h2>
+      <ul>
+        <li>서버 주소를 마인크래프트에 입력 후 접속!</li>
+        <li>디스코드에서 실시간 소식 확인 가능</li>
+      </ul>
     </div>
-    <div class="patch">
-      <b>[최근 패치]</b><br>
-      - 2025.09.14: 서버 안정화 및 최적화<br>
-      - 2025.09.13: 마을 주민 거래 밸런스 개선<br>
-      - 2025.09.10: 새로운 미니게임 추가
+    <div class="tab-content">
+      <h2>서버 규칙</h2>
+      <ul>
+        <li>욕설/비방, 도배 금지</li>
+        <li>타인의 건축물 파괴 금지</li>
+        <li>어뷰징, 핵 등 불법프로그램 사용 금지</li>
+        <li>친목 강요 금지</li>
+        <li>운영자 판단에 따라 경고/추방될 수 있음</li>
+      </ul>
     </div>
-    <h2>서버 특징</h2>
-    <ul>
-      <li>마크 감성의 친근한 커뮤니티</li>
-      <li>건축, 생존, 미니게임 등 다양한 컨텐츠</li>
-      <li>매일 운영자 이벤트 진행</li>
-      <li>유저 친화적 규칙과 시스템</li>
-    </ul>
-    <h2>참여 방법</h2>
-    <ul>
-      <li>서버 주소를 마인크래프트에 입력 후 접속!</li>
-      <li>디스코드에서 실시간 소식 확인 가능</li>
-    </ul>
-    <h2>후원 안내</h2>
-    <ul>
-      <li>운영자에게 DM으로 문의 시 안내</li>
-      <li>후원자 전용 아이템 및 전용 칭호 제공</li>
-      <li class="price">1회 후원: 5,000원</li>
-    </ul>
+    <div class="tab-content">
+      <h2>후원 안내</h2>
+      <ul>
+        <li>운영자에게 DM으로 문의 시 안내</li>
+        <li>후원자 전용 아이템 및 전용 칭호 제공</li>
+        <li class="price">1회 후원: 5,000원</li>
+      </ul>
+    </div>
   </div>
+  <script>
+    function showTab(idx) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+      });
+      document.querySelectorAll('.tab-content').forEach((tab, i) => {
+        tab.classList.toggle('active', i === idx);
+      });
+    }
+  </script>
 </body>
 </html>
