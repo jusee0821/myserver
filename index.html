@@ -19,235 +19,102 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
-      background: var(--bg-color) url('https://raw.githubusercontent.com/jusee0821/myserver/main/mc_bg.jpg') center center/cover no-repeat fixed;
+      /* 아래 라인만 추가됨 */
+      background: var(--bg-color) url('https://raw.githubusercontent.com/jusee0821/myserver/main/mcserverbg.jpeg') center center/cover no-repeat fixed;
       min-height: 100vh;
       color: #f2f2f2;
     }
-    .bg-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(34,34,34,0.35);
-      z-index: 0;
-      pointer-events: none;
-    }
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      margin: 40px auto;
+      max-width: 680px;
+      margin: 48px auto;
+      padding: 24px;
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 34px 26px 24px 26px;
       border: var(--border);
-      min-height: 380px;
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(2px);
     }
     h1 {
       color: var(--main-color);
-      margin-bottom: 14px;
-      font-size: 2.1rem;
-      letter-spacing: -1px;
-      font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
-      text-shadow: 2px 2px 4px #222;
+      font-size: 2.2em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 2px 16px #2228;
     }
-    .nav {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 22px;
+    h2 {
+      font-size: 1.3em;
+      color: var(--patch-color);
+      margin-top: 2em;
+      margin-bottom: 0.5em;
     }
-    .nav button {
-      flex: 1 1 0%;
-      background: var(--main-color);
+    .info {
+      font-size: 1.05em;
+      line-height: 1.7;
+      margin-bottom: 1.8em;
       color: #fff;
-      border: none;
+    }
+    .patch {
+      background: #222c;
+      border-left: 4px solid var(--patch-color);
+      padding: 10px 18px;
+      margin: 14px 0;
       border-radius: 8px;
-      padding: 10px 0;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      box-shadow: 0 2px 6px rgba(44,204,113,0.18);
-      font-family: inherit;
-      border: 2px solid #4d7c2a;
+      font-size: 1em;
+      color: #c6e9ff;
     }
-    .nav button.active {
-      background: var(--patch-color);
-      color: #fffbe6;
-      font-weight: bold;
-      border-color: #246bb2;
+    ul {
+      padding-left: 22px;
+      margin-top: 0.5em;
+      margin-bottom: 1.5em;
     }
-    .section {
-      display: none;
-      animation: fadein 0.3s;
+    li {
+      margin-bottom: 0.7em;
     }
-    .section.active {
-      display: block;
-    }
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .notice {
-      background: rgba(46,204,113,0.14);
-      border-left: 6px solid var(--main-color);
-      padding: 16px 14px;
-      margin-bottom: 18px;
-      border-radius: 6px;
-      color: #fffbe6;
-      font-size: 1.08rem;
-      box-shadow: 0 2px 8px rgba(46,204,113,0.09);
-    }
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 12px 0;
-      font-size: 1.06rem;
-      background: none;
-    }
-    .price-table th, .price-table td {
-      border-bottom: 1px solid #3e3e3e;
-      padding: 8px 0;
-      text-align: left;
-    }
-    .price-table th {
-      background: var(--price-color);
-      color: #222;
-      font-weight: bold;
-      border-radius: 5px 5px 0 0;
-      box-shadow: 0 2px 6px #2222;
-    }
-    .price-table td {
-      background: rgba(241,196,15,0.13);
-      color: #ffe18a;
-    }
-    .highlight {
+    .price {
       color: var(--price-color);
       font-weight: bold;
-      text-shadow: 1px 1px 2px #222;
     }
-    .patch-list {
-      padding-left: 0;
-      list-style: none;
-      margin: 0;
-    }
-    .patch-list li {
-      margin-bottom: 10px;
-      background: rgba(52,152,219,0.18);
-      border-left: 5px solid var(--patch-color);
-      padding: 10px 12px;
-      border-radius: 6px;
-      font-size: 1rem;
-      color: #cce6ff;
-      box-shadow: 0 1px 6px #2222;
-    }
-    .footer {
-      margin-top: 38px;
-      color: #ccc;
-      font-size: 13px;
-      text-align: center;
-      text-shadow: 1px 1px 2px #222;
-    }
-    ul.info-list {
-      padding-left:0;
-      list-style:none;
-    }
-    ul.info-list li {
-      margin-bottom: 10px;
-      background: rgba(46,204,113,0.10);
-      border-left: 5px solid #6cbb5a;
-      padding: 10px 12px;
-      border-radius: 6px;
-      font-size: 1rem;
-      color: #d8ffd8;
-    }
-    @media (max-width:600px) {
-      .container { max-width: 99vw; padding: 18px 2vw 12px 2vw;}
-      h1 { font-size: 1.3rem;}
+    @media (max-width: 700px) {
+      .container {
+        margin: 16px;
+        padding: 12px;
+      }
+      h1 { font-size: 1.3em; }
     }
   </style>
 </head>
 <body>
-  <!-- 배경 사진 오버레이 -->
-  <div class="bg-overlay"></div>
   <div class="container">
-    <h1>마인크래프트 서버 공지</h1>
-    <div class="nav">
-      <button id="btn-main" class="active" onclick="showSection('main')">공지 & 가격표</button>
-      <button id="btn-info" onclick="showSection('info')">서버 정보</button>
-      <button id="btn-patch" onclick="showSection('patch')">패치 내역</button>
+    <h1>마인크래프트 서버 공지 및 정보</h1>
+    <div class="info">
+      <b>서버 주소:</b> <span style="color:#c7ffb2;">mc.yourserver.kr</span><br>
+      <b>버전:</b> 1.20.1<br>
+      <b>운영자:</b> 주시<br>
+      <b>문의:</b> 디스코드 <span style="color:#b6eaff;">주시#0821</span>
     </div>
-    <!-- 메인 화면: 공지 + 가격표 -->
-    <div id="section-main" class="section active">
-      <div class="notice">
-        <b>서버 점검 안내:</b> 9월 15일 20:00~22:00 동안 점검 예정입니다.<br>
-        새로운 플러그인 추가 예정! 자세한 내용은 서버 관리진에게 문의하세요.
-      </div>
-      <h2 style="color:var(--price-color);margin-bottom:8px;">과금 가격표</h2>
-      <table class="price-table">
-        <tr>
-          <th>상품</th>
-          <th>가격</th>
-          <th>특전</th>
-        </tr>
-        <tr>
-          <td>다이아 1개</td>
-          <td class="highlight">10원</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>첫 충전</td>
-          <td class="highlight">2배 지급</td>
-          <td>예) 100원 결제 시 20다이아 지급</td>
-        </tr>
-      </table>
-      <div>
-        <b>서버 주소:</b> <span class="highlight">25.29.106.134</span>
-      </div>
+    <div class="patch">
+      <b>[최근 패치]</b><br>
+      - 2025.09.14: 서버 안정화 및 최적화<br>
+      - 2025.09.13: 마을 주민 거래 밸런스 개선<br>
+      - 2025.09.10: 새로운 미니게임 추가
     </div>
-    <!-- 서버 정보 화면 -->
-    <div id="section-info" class="section">
-      <h2 style="color:var(--main-color);margin-bottom:10px;">서버 정보</h2>
-      <ul class="info-list">
-        <li><b>버전:</b> 1.20.4</li>
-        <li><b>운영진:</b> 성준서</li>
-        <li><b>접속주소:</b> <span class="highlight">25.29.106.134</span></li>
-      </ul>
-      <div class="notice" style="margin-top:18px;">
-        문의/제안은 서버 운영진에게!
-      </div>
-    </div>
-    <!-- 패치내역 화면 -->
-    <div id="section-patch" class="section">
-      <h2 style="color:var(--patch-color);margin-bottom:10px;">패치 내역</h2>
-      <ul class="patch-list">
-        <li>2025-09-14: 서버 공지 웹사이트 오픈</li>
-        <li>2025-09-10: 신규 플러그인(퀘스트, 경제) 추가</li>
-        <li>2025-09-01: 서버 정식 오픈</li>
-      </ul>
-    </div>
-    <div class="footer">
-      &copy; 2025 마크 서버 운영진 | 디자인 by Copilot
-    </div>
+    <h2>서버 특징</h2>
+    <ul>
+      <li>마크 감성의 친근한 커뮤니티</li>
+      <li>건축, 생존, 미니게임 등 다양한 컨텐츠</li>
+      <li>매일 운영자 이벤트 진행</li>
+      <li>유저 친화적 규칙과 시스템</li>
+    </ul>
+    <h2>참여 방법</h2>
+    <ul>
+      <li>서버 주소를 마인크래프트에 입력 후 접속!</li>
+      <li>디스코드에서 실시간 소식 확인 가능</li>
+    </ul>
+    <h2>후원 안내</h2>
+    <ul>
+      <li>운영자에게 DM으로 문의 시 안내</li>
+      <li>후원자 전용 아이템 및 전용 칭호 제공</li>
+      <li class="price">1회 후원: 5,000원</li>
+    </ul>
   </div>
-  <script>
-    function showSection(sec) {
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
-      if(sec === 'main') {
-        document.getElementById('section-main').classList.add('active');
-        document.getElementById('btn-main').classList.add('active');
-      }
-      if(sec === 'info') {
-        document.getElementById('section-info').classList.add('active');
-        document.getElementById('btn-info').classList.add('active');
-      }
-      if(sec === 'patch') {
-        document.getElementById('section-patch').classList.add('active');
-        document.getElementById('btn-patch').classList.add('active');
-      }
-    }
-  </script>
 </body>
 </html>
