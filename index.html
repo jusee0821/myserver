@@ -72,7 +72,7 @@
       from { opacity: 0; transform: translateY(10px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    .patch {
+    .patch-list {
       background: #222c;
       border-left: 4px solid var(--patch-color);
       padding: 10px 18px;
@@ -80,6 +80,7 @@
       border-radius: 8px;
       font-size: 1em;
       color: #c6e9ff;
+      line-height: 1.7;
     }
     ul {
       padding-left: 22px;
@@ -92,6 +93,15 @@
     .price {
       color: var(--price-color);
       font-weight: bold;
+    }
+    .event {
+      background: #ffe06633;
+      color: #ffe066;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-weight: bold;
+      display: inline-block;
     }
     @media (max-width: 700px) {
       .container {
@@ -107,27 +117,13 @@
   <div class="container">
     <h1>마인크래프트 서버 안내</h1>
     <div class="tabs">
-      <button class="tab-btn active" onclick="showTab(0)">공지</button>
-      <button class="tab-btn" onclick="showTab(1)">서버정보</button>
-      <button class="tab-btn" onclick="showTab(2)">규칙</button>
-      <button class="tab-btn" onclick="showTab(3)">후원</button>
+      <button class="tab-btn active" onclick="showTab(0)">서버정보</button>
+      <button class="tab-btn" onclick="showTab(1)">패치내역</button>
+      <button class="tab-btn" onclick="showTab(2)">후원</button>
     </div>
     <div class="tab-content active">
-      <div class="patch">
-        <b>[최근 패치]</b><br>
-        - 2025.09.14: 서버 안정화 및 최적화<br>
-        - 2025.09.13: 마을 주민 거래 밸런스 개선<br>
-        - 2025.09.10: 새로운 미니게임 추가
-      </div>
-      <ul>
-        <li>서버 정상 운영 중!</li>
-        <li>문의/건의는 운영자에게 주세요</li>
-        <li>후원자 이벤트 진행 중</li>
-      </ul>
-    </div>
-    <div class="tab-content">
       <b>서버 주소:</b> <span style="color:#c7ffb2;">25.29.106.134</span><br>
-      <b>버전:</b> 1.20.1<br>
+      <b>버전:</b> 1.21.4<br>
       <b>운영자:</b> 성준서<br>
       <h2>서버 특징</h2>
       <ul>
@@ -143,8 +139,23 @@
       </ul>
     </div>
     <div class="tab-content">
-      <h2>서버 규칙</h2>
+      <h2>패치내역</h2>
+      <div class="patch-list">
+        <!-- 
+        [패치내역 작성 양식]
+        날짜: YYYY.MM.DD
+        내용: 변경 사항 간단히(여러 줄 가능)
+        예시:
+        - 2025.09.14: 서버 안정화 및 최적화
+        - 2025.09.13: 마을 주민 거래 밸런스 개선
+        - 2025.09.10: 새로운 미니게임 추가
+        -->
+        - 2025.09.14: 서버 안정화 및 최적화<br>
+        - 2025.09.13: 마을 주민 거래 밸런스 개선<br>
+        - 2025.09.10: 새로운 미니게임 추가
+      </div>
       <ul>
+        <li>서버 규칙을 꼭 지켜주세요!</li>
         <li>욕설/비방, 도배 금지</li>
         <li>타인의 건축물 파괴 금지</li>
         <li>어뷰징, 핵 등 불법프로그램 사용 금지</li>
@@ -154,10 +165,12 @@
     </div>
     <div class="tab-content">
       <h2>후원 안내</h2>
+      <div class="event">첫 충전 2배 이벤트 진행중!</div>
       <ul>
         <li>운영자에게 문의 시 안내</li>
         <li>후원자 전용 아이템 및 전용 칭호 제공</li>
-        <li class="price">1회 후원: 5,000원</li>
+        <li class="price">다이아 1개 = 10원</li>
+        <li class="price">1회 후원: 원하는 만큼 충전 가능</li>
       </ul>
     </div>
   </div>
