@@ -10,32 +10,48 @@
       --sub-color: #27ae60;
       --patch-color: #3498db;
       --price-color: #f1c40f;
-      --bg-color: #f8f9fa;
-      --card-bg: #fff;
-      --radius: 16px;
-      --shadow: 0 4px 24px rgba(44, 204, 113, 0.08);
+      --bg-color: #222;
+      --card-bg: rgba(34,34,34,0.80);
+      --radius: 18px;
+      --shadow: 0 4px 24px rgba(44, 204, 113, 0.14);
+      --border: 3px solid #6cbb5a;
     }
     body {
       margin: 0;
       font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
-      background: var(--bg-color);
-      color: #222;
+      background: var(--bg-color) url('https://raw.githubusercontent.com/jusee0821/myserver/main/mc_bg.jpg') center center/cover no-repeat fixed;
+      min-height: 100vh;
+      color: #f2f2f2;
+    }
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(34,34,34,0.35);
+      z-index: 0;
+      pointer-events: none;
     }
     .container {
-      max-width: 460px;
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
       margin: 40px auto;
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 32px 24px 24px 24px;
-      position: relative;
+      padding: 34px 26px 24px 26px;
+      border: var(--border);
       min-height: 380px;
+      backdrop-filter: blur(3px);
     }
     h1 {
       color: var(--main-color);
       margin-bottom: 14px;
-      font-size: 2rem;
+      font-size: 2.1rem;
       letter-spacing: -1px;
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
+      text-shadow: 2px 2px 4px #222;
     }
     .nav {
       display: flex;
@@ -51,11 +67,16 @@
       padding: 10px 0;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 6px rgba(44,204,113,0.18);
+      font-family: inherit;
+      border: 2px solid #4d7c2a;
     }
     .nav button.active {
       background: var(--patch-color);
+      color: #fffbe6;
       font-weight: bold;
+      border-color: #246bb2;
     }
     .section {
       display: none;
@@ -69,35 +90,42 @@
       to { opacity: 1; transform: translateY(0);}
     }
     .notice {
-      background: #eafaf1;
+      background: rgba(46,204,113,0.14);
       border-left: 6px solid var(--main-color);
       padding: 16px 14px;
       margin-bottom: 18px;
       border-radius: 6px;
+      color: #fffbe6;
+      font-size: 1.08rem;
+      box-shadow: 0 2px 8px rgba(46,204,113,0.09);
     }
     .price-table {
       width: 100%;
       border-collapse: collapse;
       margin: 12px 0;
-      font-size: 1.05rem;
+      font-size: 1.06rem;
+      background: none;
     }
     .price-table th, .price-table td {
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #3e3e3e;
       padding: 8px 0;
       text-align: left;
     }
     .price-table th {
       background: var(--price-color);
-      color: #444;
+      color: #222;
       font-weight: bold;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 2px 6px #2222;
     }
     .price-table td {
-      background: #fffbe6;
-      color: #888;
+      background: rgba(241,196,15,0.13);
+      color: #ffe18a;
     }
     .highlight {
-      color: var(--sub-color);
+      color: var(--price-color);
       font-weight: bold;
+      text-shadow: 1px 1px 2px #222;
     }
     .patch-list {
       padding-left: 0;
@@ -106,25 +134,43 @@
     }
     .patch-list li {
       margin-bottom: 10px;
-      background: #e8f4fd;
+      background: rgba(52,152,219,0.18);
       border-left: 5px solid var(--patch-color);
       padding: 10px 12px;
       border-radius: 6px;
       font-size: 1rem;
+      color: #cce6ff;
+      box-shadow: 0 1px 6px #2222;
     }
     .footer {
       margin-top: 38px;
-      color: #aaa;
+      color: #ccc;
       font-size: 13px;
       text-align: center;
+      text-shadow: 1px 1px 2px #222;
+    }
+    ul.info-list {
+      padding-left:0;
+      list-style:none;
+    }
+    ul.info-list li {
+      margin-bottom: 10px;
+      background: rgba(46,204,113,0.10);
+      border-left: 5px solid #6cbb5a;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #d8ffd8;
     }
     @media (max-width:600px) {
-      .container { max-width: 99vw; padding: 18px 4vw 12px 4vw;}
+      .container { max-width: 99vw; padding: 18px 2vw 12px 2vw;}
       h1 { font-size: 1.3rem;}
     }
   </style>
 </head>
 <body>
+  <!-- 배경 사진 오버레이 -->
+  <div class="bg-overlay"></div>
   <div class="container">
     <h1>마인크래프트 서버 공지</h1>
     <div class="nav">
@@ -163,13 +209,10 @@
     <!-- 서버 정보 화면 -->
     <div id="section-info" class="section">
       <h2 style="color:var(--main-color);margin-bottom:10px;">서버 정보</h2>
-      <ul style="padding-left:0;list-style:none;">
-        <li><b>서버명:</b> 예시 마크 서버</li>
-        <li><b>버전:</b> 1.20.1</li>
-        <li><b>운영진:</b> jusee0821 외 2명</li>
-        <li><b>플러그인:</b> 랜덤박스, 경제, 랭킹, 퀘스트 등</li>
+      <ul class="info-list">
+        <li><b>버전:</b> 1.20.4</li>
+        <li><b>운영진:</b> 성준서</li>
         <li><b>접속주소:</b> <span class="highlight">25.29.106.134</span></li>
-        <li><b>최대 동시 접속:</b> 100명</li>
       </ul>
       <div class="notice" style="margin-top:18px;">
         문의/제안은 서버 운영진에게!
