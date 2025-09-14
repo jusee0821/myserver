@@ -2,29 +2,209 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>마인크래프트 서버 공지</title>
+  <title>마크 서버 공지 및 정보</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; background: #f3f3f3; margin: 0; }
-    .container { max-width: 700px; margin: 60px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,.1);}
-    h1 { color: #2ecc71; }
-    .notice { margin: 20px 0; padding: 16px; background: #eafaf1; border-left: 5px solid #2ecc71;}
-    .footer { margin-top: 40px; color: #888; font-size: 13px;}
+    :root {
+      --main-color: #2ecc71;
+      --sub-color: #27ae60;
+      --patch-color: #3498db;
+      --price-color: #f1c40f;
+      --bg-color: #f8f9fa;
+      --card-bg: #fff;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(44, 204, 113, 0.08);
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
+      background: var(--bg-color);
+      color: #222;
+    }
+    .container {
+      max-width: 460px;
+      margin: 40px auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 24px 24px 24px;
+      position: relative;
+      min-height: 380px;
+    }
+    h1 {
+      color: var(--main-color);
+      margin-bottom: 14px;
+      font-size: 2rem;
+      letter-spacing: -1px;
+    }
+    .nav {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .nav button {
+      flex: 1 1 0%;
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav button.active {
+      background: var(--patch-color);
+      font-weight: bold;
+    }
+    .section {
+      display: none;
+      animation: fadein 0.3s;
+    }
+    .section.active {
+      display: block;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .notice {
+      background: #eafaf1;
+      border-left: 6px solid var(--main-color);
+      padding: 16px 14px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 1.05rem;
+    }
+    .price-table th, .price-table td {
+      border-bottom: 1px solid #eee;
+      padding: 8px 0;
+      text-align: left;
+    }
+    .price-table th {
+      background: var(--price-color);
+      color: #444;
+      font-weight: bold;
+    }
+    .price-table td {
+      background: #fffbe6;
+      color: #888;
+    }
+    .highlight {
+      color: var(--sub-color);
+      font-weight: bold;
+    }
+    .patch-list {
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+    .patch-list li {
+      margin-bottom: 10px;
+      background: #e8f4fd;
+      border-left: 5px solid var(--patch-color);
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .footer {
+      margin-top: 38px;
+      color: #aaa;
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width:600px) {
+      .container { max-width: 99vw; padding: 18px 4vw 12px 4vw;}
+      h1 { font-size: 1.3rem;}
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>마크 서버 공지</h1>
-    <div class="notice">
-      서버 점검 안내: 9월 15일 20:00~22:00 동안 점검이 있을 예정입니다.<br>
-      새로운 플러그인 추가 예정! 자세한 내용은 Discord에서 확인하세요.
+    <h1>마인크래프트 서버 공지</h1>
+    <div class="nav">
+      <button id="btn-main" class="active" onclick="showSection('main')">공지 & 가격표</button>
+      <button id="btn-info" onclick="showSection('info')">서버 정보</button>
+      <button id="btn-patch" onclick="showSection('patch')">패치 내역</button>
     </div>
-    <div>
-      <b>서버 주소:</b> play.example.com<br>
-      <b>디스코드:</b> <a href="https://discord.gg/your-link" target="_blank">디스코드 참여하기</a>
+    <!-- 메인 화면: 공지 + 가격표 -->
+    <div id="section-main" class="section active">
+      <div class="notice">
+        <b>서버 점검 안내:</b> 9월 15일 20:00~22:00 동안 점검 예정입니다.<br>
+        새로운 플러그인 추가 예정! 자세한 내용은 서버 관리진에게 문의하세요.
+      </div>
+      <h2 style="color:var(--price-color);margin-bottom:8px;">과금 가격표</h2>
+      <table class="price-table">
+        <tr>
+          <th>상품</th>
+          <th>가격</th>
+          <th>특전</th>
+        </tr>
+        <tr>
+          <td>다이아 1개</td>
+          <td class="highlight">10원</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>첫 충전</td>
+          <td class="highlight">2배 지급</td>
+          <td>예) 100원 결제 시 20다이아 지급</td>
+        </tr>
+      </table>
+      <div>
+        <b>서버 주소:</b> <span class="highlight">25.29.106.134</span>
+      </div>
+    </div>
+    <!-- 서버 정보 화면 -->
+    <div id="section-info" class="section">
+      <h2 style="color:var(--main-color);margin-bottom:10px;">서버 정보</h2>
+      <ul style="padding-left:0;list-style:none;">
+        <li><b>서버명:</b> 예시 마크 서버</li>
+        <li><b>버전:</b> 1.20.1</li>
+        <li><b>운영진:</b> jusee0821 외 2명</li>
+        <li><b>플러그인:</b> 랜덤박스, 경제, 랭킹, 퀘스트 등</li>
+        <li><b>접속주소:</b> <span class="highlight">25.29.106.134</span></li>
+        <li><b>최대 동시 접속:</b> 100명</li>
+      </ul>
+      <div class="notice" style="margin-top:18px;">
+        문의/제안은 서버 운영진에게!
+      </div>
+    </div>
+    <!-- 패치내역 화면 -->
+    <div id="section-patch" class="section">
+      <h2 style="color:var(--patch-color);margin-bottom:10px;">패치 내역</h2>
+      <ul class="patch-list">
+        <li>2025-09-14: 서버 공지 웹사이트 오픈</li>
+        <li>2025-09-10: 신규 플러그인(퀘스트, 경제) 추가</li>
+        <li>2025-09-01: 서버 정식 오픈</li>
+      </ul>
     </div>
     <div class="footer">
-      &copy; 2025 마크 서버 운영진
+      &copy; 2025 마크 서버 운영진 | 디자인 by Copilot
     </div>
   </div>
+  <script>
+    function showSection(sec) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+      if(sec === 'main') {
+        document.getElementById('section-main').classList.add('active');
+        document.getElementById('btn-main').classList.add('active');
+      }
+      if(sec === 'info') {
+        document.getElementById('section-info').classList.add('active');
+        document.getElementById('btn-info').classList.add('active');
+      }
+      if(sec === 'patch') {
+        document.getElementById('section-patch').classList.add('active');
+        document.getElementById('btn-patch').classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
