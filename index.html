@@ -113,6 +113,28 @@
       display: inline-block;
       margin: 4px 0 8px 0;
     }
+    .chance-table {
+      background: #232c36e0;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin: 14px 0;
+      color: #fff7d6;
+      font-size: 1.03em;
+      box-shadow: 0 2px 12px #2228;
+    }
+    .chance-table th, .chance-table td {
+      padding: 6px 12px;
+      border-bottom: 1px solid #4446;
+      text-align: left;
+    }
+    .chance-table th {
+      color: #ffe066;
+      font-weight: bold;
+      border-bottom: 2px solid #ffe06666;
+    }
+    .chance-table tr:last-child td {
+      border-bottom: none;
+    }
     @media (max-width: 700px) {
       .container {
         margin: 16px;
@@ -120,6 +142,7 @@
       }
       h1 { font-size: 1.3em; }
       .tab-btn { font-size: 0.95em; padding: 9px 0;}
+      .chance-table {font-size: 0.96em;}
     }
   </style>
 </head>
@@ -131,6 +154,7 @@
       <button class="tab-btn" onclick="showTab(1)">서버특징</button>
       <button class="tab-btn" onclick="showTab(2)">패치내역</button>
       <button class="tab-btn" onclick="showTab(3)">후원</button>
+      <button class="tab-btn" onclick="showTab(4)">확률표</button>
     </div>
     <div class="tab-content active">
       <b>서버 주소:</b> <span style="color:#c7ffb2;">25.29.106.134</span><br>
@@ -175,6 +199,26 @@
         <li class="price">다이아 1개 = 10원</li>
         <li class="price">1회 후원: 원하는 만큼 충전 가능</li>
       </ul>
+    </div>
+    <div class="tab-content">
+      <h2>확률표</h2>
+      <div class="chance-table">
+        <b>인첸트 가챠</b>
+        <table>
+          <tr>
+            <th>강화 단계</th>
+            <th>확률</th>
+          </tr>
+          <tr>
+            <td>1강</td>
+            <td>8%</td>
+          </tr>
+          <tr>
+            <td>2강</td>
+            <td>8/3% (약 2.67%)</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
   <script>
